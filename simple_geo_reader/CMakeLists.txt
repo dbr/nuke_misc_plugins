@@ -12,13 +12,8 @@ if(NOT CMAKE_INSTALL_EXEC_PREFIX)
 endif()
 
 # Locate Nuke or error
-find_package(Nuke)
-if(NUKE_FOUND)
-    message("Build Nuke plugins against ${Nuke_LIBRARY_DIR}")
-else()
-    message(FATAL_ERROR "Cannot locate Nuke. Add the flag -D NUKE_INSTALL_PATH=... or set the NDK_PATH environment variable")
-endif()
-
+find_package(Nuke REQUIRED)
+message("Build Nuke plugins against ${Nuke_LIBRARY_DIR}")
 
 # Include Nuke headers
 include_directories(
