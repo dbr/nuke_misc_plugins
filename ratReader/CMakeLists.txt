@@ -15,9 +15,14 @@ endif()
 find_package(Nuke REQUIRED)
 message("Build Nuke plugins against ${Nuke_LIBRARY_DIR}")
 
+# Locate Houdini
+find_package(Houdini REQUIRED)
+message("Build against Houdini at ${Houdini_LIBRARY_DIR}")
+
 # Include Nuke headers
 include_directories(
     ${Nuke_INCLUDE_DIR}
+    ${Houdini_INCLUDE_DIR}
 )
 
 # Add plugin as shared library (.so on linux, .dylib on OS X)
@@ -28,12 +33,16 @@ add_library(ratReaderDeep SHARED
 # Link against Nuke's libraries
 target_link_libraries(ratReaderDeep
     ${Nuke_LIBRARIES}
+    ${Houdini_LIBRARIES}
 )
+
 
 # Prevent lib prefix on filesnames
 set_target_properties(ratReaderDeep
     PROPERTIES
     PREFIX ""
+    COMPILE_FLAGS "${Houdini_COMPILE_FLAGS}"
+    LINK_FLAGS "${Houdini_LINK_FLAGS}"
 )
 
 # Once built, copy the library into install location (e.g "executable-prefix/lib/nuke/6.2")

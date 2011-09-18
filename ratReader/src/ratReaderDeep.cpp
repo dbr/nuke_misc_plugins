@@ -1,3 +1,4 @@
+// Nuke headers
 #include "DDImage/DeepReader.h"
 #include "DDImage/DeepPlane.h"
 
@@ -5,6 +6,9 @@
 #include "DDImage/Thread.h"
 
 #include <DDImage/ChannelSet.h>
+
+// Houdini headers
+#include <IMG/IMG_DeepShadow.h>
 
 
 using namespace DD::Image;
@@ -61,6 +65,8 @@ class ratDeepReader : public DeepReader
     Lock _engineLock;
     int _numChans;
     DD::Image::OutputContext _outputContext;
+
+    IMG_DeepShadow fp;
 
 public:
     ratDeepReader(DeepReaderOwner* op, const std::string& filename) : DeepReader(op)

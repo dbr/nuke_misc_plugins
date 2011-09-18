@@ -46,3 +46,7 @@ To build:
     make install
 
     env PYTHONPATH=../dist/lib/nuke6.3 /Applications/Nuke6.3v1/Nuke6.3v1.app/Contents/MacOS/Nuke6.3v1
+
+## `ratReader`
+
+An incomplete deep shadow map/deep camera map reader
