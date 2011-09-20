@@ -55,3 +55,8 @@ This will not work on OS X, due to incompatibilities between how
 Houdini and Nuke are built,
 
 http://www.sidefx.com/index.php?option=com_forum&Itemid=172&page=viewtopic&p=102608
+
+## `dcm_convertor`
+
+An even more incomplete tool to convert a Houdini's .rat deep
+[camera/shadow] map to .dtex
