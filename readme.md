@@ -15,7 +15,16 @@ A simplified version of the Sphere.cpp NDK example
 
 ## `nuke_verbosity`
 
-A compiled Python module which exposes the "nuke -V" flag
+A Python module which exposes the Nuke verbosity level. This isn't
+necessary, as there is a simpler way of doing this with no compiling
+required:
+
+    import nuke
+    if "-V" in nuke.rawArgs:
+        print "Is verbose"
+
+However this module might be a useful reference for doing similar
+things. It works like this:
 
     $ nuke -t
     >>> import nuke_verbosity
